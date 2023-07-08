@@ -8,7 +8,13 @@ const hotel_schema= new mongoose.Schema({
     hotel_adress:{
         type:String,
         required:true
-    }
+    },
+    rooms:[{type:mongoose.Schema.Types.ObjectId,ref:'Room'}],
+    payment:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'payment'
+    },
+    bookings: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Booking' }]
 });
 const hotels=mongoose.model("Hotel_details",hotel_schema);
 module.exports=hotels;

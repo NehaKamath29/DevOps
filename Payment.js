@@ -4,6 +4,14 @@ const paymentSchema=new mongoose.Schema({
     amount:{
         type:Number,
         required:true
+    },
+    custId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'cust'
+    },
+    hotelId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'hotel'
     }
 });
 

@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-console.log("Hi")
+
 const bookingSchema = new mongoose.Schema({
     username: {
       type: String,
@@ -12,7 +12,10 @@ const bookingSchema = new mongoose.Schema({
     checkOutDate: {
       type: Date,
       required: true
-    }
+    },
+    guest: { type: mongoose.Schema.Types.ObjectId, ref: 'cust' },
+    room: { type: mongoose.Schema.Types.ObjectId, ref: 'Room' },
+    hotel: { type: mongoose.Schema.Types.ObjectId, ref: 'hotels' }
 });
 
 const Booking = mongoose.model('Booking_details', bookingSchema);
